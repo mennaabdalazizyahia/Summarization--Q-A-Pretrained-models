@@ -67,7 +67,11 @@ def main():
         "What is sentiment analysis?",
         "What are large language models?"
     ]
-    
+    cols = st.columns(2)
+    for i, q in enumerate(questions):
+        with cols[i % 2]:
+            if st.button(f"❓ {q}", key=f"btn_{i}"):
+                st.session_state.selected_question = q
     custom_question = st.text_input(
         "Or ask your own question:",
         placeholder="Type your question here..."
